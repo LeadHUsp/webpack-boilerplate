@@ -1,0 +1,136 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  overflow: auto;
+  background-color: #f0f0f0;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease 0.2s;
+  z-index: 3000;
+  box-shadow: -6px 0px 14px 2px rgba(126, 126, 126, 0.25);
+  &._active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  &__wrapper {
+    padding: 15px;
+  }
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+  }
+  &__logo {
+    width: 230px;
+  }
+  &__close {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: $secondary;
+  }
+  &__icon {
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+  }
+  &__body {
+    position: relative;
+    border-top: 1px solid rgb(223, 223, 223);
+    border-bottom: 1px solid rgb(223, 223, 223);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    // min-height: 400px;
+    // max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .simplebar-track.simplebar-vertical {
+      width: 7px;
+      background-color: #e5e5e5;
+    }
+  }
+  &__list {
+    position: relative;
+    height: 100%;
+    padding-right: 15px;
+    overflow: hidden;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__link {
+    padding: 10px 0;
+    display: block;
+  }
+  &__btn {
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    border-radius: 5px;
+    background-color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+  }
+  &__arrow {
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+    transform: rotate(180deg);
+  }
+  &__subnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+    transform: translateX(120%);
+    padding-right: 15px;
+    background-color: #f0f0f0;
+    transition: transform 0.4s ease-in-out;
+    z-index: 200;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  &__prev {
+    padding: 15px 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__icon-prev {
+    width: 15px;
+    height: 15px;
+    fill: $primary;
+  }
+  &__info {
+    font-weight: bold;
+    padding-left: 10px;
+    line-height: 1;
+  }
+  &__phone {
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  &__callback {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  &__footer {
+    padding-top: 10px;
+  }
+}

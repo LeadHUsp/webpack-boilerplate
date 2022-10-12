@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+	<div class="content">
+
+		<img src="{% static 'images/car.jpg' %}" alt="">
+
+		<img src="{% static 'footer/img/car.jpg' %}" alt="">
+		{# <img src="{% static 'images/info-1.svg' %}" alt=""> #}
+
+		<svg class="icons">
+			<use xlink:href="assets/sprite.svg#zoom"></use>
+		</svg>
+
+	</div>
+{% endblock %}

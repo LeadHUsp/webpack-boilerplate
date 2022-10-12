@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        {% for name, item in bundles.css %}
+            <link rel="stylesheet" href="{{ item }}">
+        {% endfor %}
+    </head>
+    <body>
+
+        {% include "blocks/header/header.njk" %}
+        {% include "blocks/drawer/drawer.njk" %}
+        <main class="main">
+            {% block content %}{% endblock %}
+        </main>
+
+        {% include "blocks/footer/footer.njk" %}
+
+        {% for name, item in bundles.js %}
+            <script src="{{ item }}"></script>
+        {% endfor %}
+
+    </body>
+</html>

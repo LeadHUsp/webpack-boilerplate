@@ -1,0 +1,15 @@
+$font-size: 1rem;
+$main-font: 'Gilroy', 'Helvetica', 'Arial', 'sans-serif';
+$background-color: #fff;
+$font-color: #dae0e0;
+$page-width: 650px;
+
+// theme
+$primary: #1d4c56;
+$primary-dark: darken($primary, 15%);
+$secondary: #119b14;
+$secondary-dark: darken($secondary, 10%);
+
+// responsive
+$container-pc: 1600px;
+$container-mb: 1200px;

@@ -1,0 +1,66 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "3.0.1",
+  "description": "Sensible webpack 5 boilerplate using Babel and PostCSS.",
+  "main": "index.js",
+  "author": "Vinokurov Bogdan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "lint": "eslint 'src/**/*.js' || true",
+    "prettify": "prettier --write 'src/**/*.js'"
+  },
+  "keywords": [
+    "webpack",
+    "webpack 5",
+    "webpack boilerplate"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/runtime": "^7.18.3",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.27.10",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.4.0",
+    "css-minimizer-webpack-plugin": "^3.1.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-webpack": "^0.13.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.4.2",
+    "nunjucks": "^3.2.3",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.1",
+    "prettier": "^2.4.1",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.2.0",
+    "simple-nunjucks-loader": "^3.2.0",
+    "style-loader": "^3.3.0",
+    "svg-spritemap-webpack-plugin": "^4.4.0",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:taniarascia/webpack-boilerplate"
+  },
+  "dependencies": {
+    "swiper": "^8.2.6"
+  }
+}
