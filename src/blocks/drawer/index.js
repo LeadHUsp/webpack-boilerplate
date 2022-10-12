@@ -1,3 +1,5 @@
+import '@/blocks/drawer/drawer.scss';
+
 export class Drawer {
   constructor(options) {
     const defaultOptions = {
