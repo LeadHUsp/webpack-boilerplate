@@ -3,6 +3,7 @@ import { example } from '@/js/example';
 import { Drawer } from '@/blocks/drawer';
 // Test import of styles
 import '@/styles/index.scss';
+
 // import libs
 import 'swiper/scss';
 

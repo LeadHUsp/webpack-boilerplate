@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="cleartype" content="on">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>{{ title }}</title>
-        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <title>ALLIANCE TECHNOLOGY LLC</title>
+
+        <link rel="stylesheet" href="{{htmlWebpackPlugin.options.templateParameters.fonts}}/montserrat/stylesheet.css">
         {% for name, item in bundles.css %}
             <link rel="stylesheet" href="{{ item }}">
         {% endfor %}
     </head>
     <body>
-
+        <div></div>
         {% include "blocks/header/header.njk" %}
         {% include "blocks/drawer/drawer.njk" %}
         <main class="main">

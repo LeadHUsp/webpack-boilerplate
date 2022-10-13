@@ -3,7 +3,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 const paths = require('./paths');
 const utils = require('./utils');
-
+const path = require('path');
 module.exports = {
   // Where webpack looks to start building the bundle
   entry: [paths.src + '/index.js'],
@@ -101,7 +101,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@': paths.src,
-      assets: paths.public,
+      '@public': paths.public,
     },
   },
 };

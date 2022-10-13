@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
-const path = require('path');
+const paths = require('./paths');
 
 exports.pages = function (folder = '') {
   const viewsFolder = folder;
@@ -18,6 +18,9 @@ exports.pages = function (folder = '') {
       template: `${viewsFolder}/${view}`,
       inject: 'body',
       minify: false,
+      templateParameters: {
+        fonts: `${paths.buildAssets}/fonts`,
+      },
     };
 
     pages.push(new HtmlWebpackPlugin(options));

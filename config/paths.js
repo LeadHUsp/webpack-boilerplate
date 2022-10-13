@@ -8,10 +8,9 @@ module.exports = {
   // Production build files
   build: path.resolve(__dirname, '../dist'),
   // build static assets
-  buildAssets: 'assets',
+  buildAssets: 'assets/theme/default',
 
   // Static files that get copied to build folder
   public: path.resolve(__dirname, '../public'),
-
   pages: path.resolve(__dirname, '../src/pages'),
 };
