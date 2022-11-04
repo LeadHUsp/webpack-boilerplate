@@ -10,6 +10,7 @@ export class Drawer {
       linkCssSelector: '.drawer__link',
       shoudCloseOnLinkClick: false,
     };
+    this.drawerIsOpen = false;
     this.options = { ...defaultOptions, ...options };
     this.drawerEl = document.querySelector(this.options.drawerCssSelector);
     this.openBtnEl = document.querySelector(this.options.openBtnCssSelector);
@@ -50,7 +51,8 @@ export class Drawer {
         !this.drawerEl.isEqualNode(e.target) &&
         !this.drawerEl.contains(e.target) &&
         !this.openBtnEl.contains(e.target) &&
-        !this.openBtnEl.isEqualNode(e.target)
+        !this.openBtnEl.isEqualNode(e.target) &&
+        this.drawerIsOpen
       ) {
         this.drawerEl.classList.remove('_active');
         document.body.style = '';

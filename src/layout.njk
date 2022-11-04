@@ -20,6 +20,7 @@
         </main>
 
         {% include "blocks/footer/footer.njk" %}
+        {% include "blocks/modal/callback.njk" %}
 
         {% for name, item in bundles.js %}
             <script src="{{ item }}"></script>

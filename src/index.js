@@ -6,11 +6,13 @@ import '@/styles/index.scss';
 
 // import libs
 import 'swiper/scss';
+import { Modal } from './blocks/modal/modal';
 
 // Appending to the DOM
 
 document.addEventListener('DOMContentLoaded', () => {
   new Drawer();
+  new Modal();
 });
 
 function app() {

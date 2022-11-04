@@ -6,6 +6,7 @@ body {
   line-height: 170%;
   @include value('font-size', 14, 16);
 }
+
 .swiper-slide {
   transition-property: opacity, transform;
 }
