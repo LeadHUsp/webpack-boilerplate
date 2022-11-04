@@ -6,9 +6,10 @@
 	? Очистить дочерние элементы от float 
 	* @include clearfix;
 */
+@use 'sass:math';
 @mixin clearfix {
   &::after {
-    content: "";
+    content: '';
     display: block;
     height: 0;
     clear: both;
@@ -57,15 +58,11 @@ $templateSize: 1920 - 17; // 17 its width of scrollbar
   $addMobSize: $addSize + $addSize * 0.7;
 
   @include max-screen(767px) {
-    font-size: calc(
-      #{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$templateSize})
-    );
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$templateSize}));
   }
 
   @include min-screen(767px) {
-    font-size: calc(
-      #{$mobSize + px} + #{$addSize} * (100vw / #{$templateSize})
-    );
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$templateSize}));
   }
 }
 
@@ -78,8 +75,7 @@ $templateSize: 1920 - 17; // 17 its width of scrollbar
 
   @media (max-width: 1920px) {
     #{$property}: calc(
-      #{$min-value + px} + #{($value - $min-value)} * ((100vw - 320px) / #{1920 -
-            320})
+      #{$min-value + px} + #{($value - $min-value)} * ((100vw - 320px) / #{1920 - 320})
     );
   }
 }
@@ -89,44 +85,43 @@ $templateSize: 1920 - 17; // 17 its width of scrollbar
 	* @include triangle(up, 6px, black);
 */
 @mixin triangle($triangle-direction, $triangle-size, $triangle-color) {
-  content: "";
+  content: '';
   width: 0;
   height: 0;
   display: block;
 
-  @if ($triangle-direction== "up") {
+  @if ($triangle-direction== 'up') {
     border-bottom: $triangle-size solid $triangle-color;
     border-left: 1/2 * $triangle-size solid transparent;
     border-right: 1/2 * $triangle-size solid transparent;
   }
 
-  @if ($triangle-direction== "down") {
+  @if ($triangle-direction== 'down') {
     border-top: $triangle-size solid $triangle-color;
     border-left: 1/2 * $triangle-size solid transparent;
     border-right: 1/2 * $triangle-size solid transparent;
   }
 
-  @if ($triangle-direction== "left") {
+  @if ($triangle-direction== 'left') {
     border-top: 1/2 * $triangle-size solid transparent;
     border-bottom: 1/2 * $triangle-size solid transparent;
     border-right: $triangle-size solid $triangle-color;
   }
 
-  @if ($triangle-direction== "right") {
+  @if ($triangle-direction== 'right') {
     border-top: 1/2 * $triangle-size solid transparent;
     border-bottom: 1/2 * $triangle-size solid transparent;
     border-left: $triangle-size solid $triangle-color;
   }
 }
 @function width($parent-width, $element-width) {
-  @return ($element-width / $parent-width) * 100%;
+  @return math.percentage(math.div($element-width, $parent-width));
 }
 @mixin value($property, $min-value, $value) {
   #{$property}: $value + px;
   @media screen and (max-width: 1600px) {
     #{$property}: calc(
-      #{$min-value + px} + #{($value - $min-value)} * ((100vw - 320px) / #{1600 -
-            320})
+      #{$min-value + px} + #{($value - $min-value)} * ((100vw - 320px) / #{1600 - 320})
     );
   }
 }
