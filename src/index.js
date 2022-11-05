@@ -1,5 +1,6 @@
 // Test import of a JavaScript module
-import { example } from '@/js/example';
+import { initReactApp } from '@/js/react-example';
+import { initVueApp } from '@/js/vue-example';
 import { Drawer } from '@/blocks/drawer';
 // Test import of styles
 import '@/styles/index.scss';
@@ -13,14 +14,11 @@ import { Modal } from './blocks/modal/modal';
 document.addEventListener('DOMContentLoaded', () => {
   new Drawer();
   new Modal();
+  initReactApp();
 });
-
-function app() {
-  const body = document;
-}
-app();
-if (document.querySelector('header')) {
-  import(/* webpackChunkName: "header" */ '@/blocks/header/header').then((header) =>
-    header.default()
-  );
-}
+initVueApp();
+// if (document.querySelector('header')) {
+//   import(/* webpackChunkName: "header" */ '@/blocks/header/header').then((header) =>
+//     header.default()
+//   );
+// }

@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="cleartype" content="on">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>ALLIANCE TECHNOLOGY LLC</title>
-
+        <title>Template</title>
         <link rel="stylesheet" href="{{htmlWebpackPlugin.options.templateParameters.fonts}}/montserrat/stylesheet.css">
         {% for name, item in bundles.css %}
             <link rel="stylesheet" href="{{ item }}">
@@ -15,6 +14,8 @@
         <div></div>
         {% include "blocks/header/header.njk" %}
         {% include "blocks/drawer/drawer.njk" %}
+        <div id="root-react"></div>
+        <div id="vue-app"></div>
         <main class="main">
             {% block content %}{% endblock %}
         </main>

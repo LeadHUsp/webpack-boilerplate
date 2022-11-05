@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
-
+const { VueLoaderPlugin } = require('vue-loader');
 const paths = require('./paths');
 const utils = require('./utils');
 const path = require('path');
@@ -17,6 +17,7 @@ module.exports = {
 
   // Customize the webpack build process
   plugins: [
+    new VueLoaderPlugin(),
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
       patterns: [
@@ -31,6 +32,9 @@ module.exports = {
       ],
     }),
     ...utils.pages(paths.pages),
+    //vue loader plugin
+
+    //svg sprite generator
     // new SVGSpritemapPlugin(`${paths.public}/icons/*.svg`, {
     //   output: {
     //     filename: `assets/sprite.svg`,
@@ -58,8 +62,14 @@ module.exports = {
   // Determine how modules within the project are treated
   module: {
     rules: [
+      //vue template compile
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
+        exclude: /node_modules/,
+      },
       // JavaScript: Use Babel to transpile JavaScript files
-      { test: /\.(js|jsx|es6)$/, use: ['babel-loader'] },
+      { test: /\.(js|jsx|es6)$/, use: ['babel-loader'], exclude: /node_modules/ },
 
       // Images: Copy image files to build folder
       {
@@ -98,7 +108,7 @@ module.exports = {
 
   resolve: {
     modules: [paths.src, 'node_modules'],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.vue'],
     alias: {
       '@': paths.src,
       '@public': paths.public,

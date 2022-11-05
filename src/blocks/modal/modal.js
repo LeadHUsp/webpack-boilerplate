@@ -81,6 +81,7 @@ export class Modal {
   };
   closeCurrentModal(modalWindowElementUnicSelector) {
     const modal = document.querySelector(modalWindowElementUnicSelector);
+    delete this.activeModals[modal.getAttribute('data-modal')];
     modal.classList.remove(this.options.activeCssClass);
     document.body.style.cssText = '';
   }
