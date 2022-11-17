@@ -1,5 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const paths = require('./paths');
 const utils = require('./utils');
@@ -17,6 +18,7 @@ module.exports = {
 
   // Customize the webpack build process
   plugins: [
+    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
