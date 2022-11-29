@@ -37,6 +37,9 @@ module.exports = merge(common, {
 
     port: 8080,
   },
+  output: {
+    filename: `${paths.buildAssets}/js/[name].bundle.js`,
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${paths.buildAssets}/styles/[name].css`,

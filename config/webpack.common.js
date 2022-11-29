@@ -78,7 +78,7 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: `${paths.buildAssets}/images/[name][hash][ext]`,
+          filename: `${paths.buildAssets}/images/[name][ext]`,
         },
         exclude: `${paths.public}/fonts`,
       },

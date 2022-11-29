@@ -101,6 +101,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translate(10px, 10px);
     &_theme_dark {
       border: 1px solid #222222;
       &:after {
