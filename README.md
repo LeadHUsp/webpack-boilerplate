@@ -37,7 +37,7 @@ npm run build
 ### Создает продакшен билд без хешей
 
 ```bash
-npm run build
+npm run prod
 ```
 
 ### Как поменять путь для assets
