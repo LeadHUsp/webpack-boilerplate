@@ -42,7 +42,7 @@ npm run prod
 
 ### Как поменять путь для assets
 
-** Идем в config/paths.js находим ключ buildAssets, и меняем на нужный **
+**Идем в config/paths.js находим ключ buildAssets, и меняем на нужный**
 
 ## Возможности
 
