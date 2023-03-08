@@ -40,6 +40,12 @@ npm run build
 npm run prod
 ```
 
+### Создает продакшен билд без хешей с оптимизированными картинками
+
+```bash
+npm run prod-image
+```
+
 ### Как поменять путь для assets
 
 **Идем в config/paths.js находим ключ buildAssets, и меняем на нужный**

@@ -75,7 +75,7 @@ module.exports = {
 
       // Images: Copy image files to build folder
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: `${paths.buildAssets}/images/[name][ext]`,

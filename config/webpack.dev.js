@@ -19,6 +19,9 @@ module.exports = merge(common, {
       directory: paths.public,
       // publicPath: '/serve-public-path-url',
     },
+    devMiddleware: {
+      writeToDisk: process.env.NODE_ENV_DISK === 'disk',
+    },
     historyApiFallback: true,
     open: true,
     compress: true,

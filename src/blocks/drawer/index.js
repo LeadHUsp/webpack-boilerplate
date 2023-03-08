@@ -40,7 +40,7 @@ export class Drawer {
       item.addEventListener('click', this._closeSubNav);
     });
     this._clickAwayListener();
-    Array.prototype.forEach.call(this.linksEl, (item) => {
+    Array.prototype.forEach.call(this.linksEl, () => {
       this.drawerEl.classList.remove('_active');
       document.body.style = '';
     });
@@ -72,9 +72,7 @@ export class Drawer {
     e.currentTarget.closest('.drawer__subnav').classList.remove('active');
     document.querySelector('.drawer__list').style.cssText = '';
     if (subnav) {
-      console.log(subnav.scrollHeight);
       document.querySelector('.drawer__list').style.cssText = `height:${subnav.scrollHeight}px`;
-    } else {
     }
   };
   _closeOnLinkClick = () => {
