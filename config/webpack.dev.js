@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const paths = require('./paths');
 const common = require('./webpack.common');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(common, {
   // Set the mode to development or production
@@ -62,6 +63,18 @@ module.exports = merge(common, {
   module: {
     rules: [
       // Styles: Inject CSS into the head with source maps
+      {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              plugins: [require.resolve('react-refresh/babel')].filter(Boolean),
+            },
+          },
+        ],
+      },
       {
         test: /\.(sass|scss|css)$/,
         use: [
