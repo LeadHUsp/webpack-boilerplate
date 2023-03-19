@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BeautifyHtmlWebpackPlugin = require('@sumotto/beautify-html-webpack-plugin');
 const fs = require('fs');
 const paths = require('./paths');
 
@@ -23,7 +24,15 @@ exports.pages = function (folder = '') {
       },
     };
 
-    pages.push(new HtmlWebpackPlugin(options));
+    pages.push(
+      new HtmlWebpackPlugin(options),
+      new BeautifyHtmlWebpackPlugin({
+        html: {
+          max_preserve_newlines: 1,
+          indent_size: 4,
+        },
+      })
+    );
   });
 
   return pages;
