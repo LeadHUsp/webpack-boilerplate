@@ -23,16 +23,17 @@ exports.pages = function (folder = '') {
         fonts: `${paths.buildAssets}/fonts`,
       },
     };
-
-    pages.push(
-      new HtmlWebpackPlugin(options),
-      new BeautifyHtmlWebpackPlugin({
-        html: {
-          max_preserve_newlines: 1,
-          indent_size: 4,
-        },
-      })
-    );
+    pages.push(new HtmlWebpackPlugin(options));
+    if (process.env.NODE_ENV !== 'development') {
+      pages.push(
+        new BeautifyHtmlWebpackPlugin({
+          html: {
+            max_preserve_newlines: 1,
+            indent_size: 4,
+          },
+        })
+      );
+    }
   });
 
   return pages;

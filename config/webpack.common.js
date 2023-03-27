@@ -97,6 +97,12 @@ module.exports = {
         exclude: [/node_modules/],
         use: [
           {
+            loader: 'thread-loader',
+            options: {
+              workers: 3,
+            },
+          },
+          {
             loader: 'simple-nunjucks-loader',
             options: {
               searchPaths: paths.src,
