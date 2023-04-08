@@ -96,10 +96,10 @@ module.exports = {
         test: /\.(html|njk|nunjucks)$/,
         exclude: [/node_modules/],
         use: [
-          {
+           {
             loader: 'thread-loader',
             options: {
-              workers: 3,
+              workers: require('os').cpus().length - 1,
             },
           },
           {

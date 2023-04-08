@@ -25,10 +25,9 @@ module.exports = merge(common, {
     },
     historyApiFallback: true,
     open: true,
-    compress: true,
+    compress: false,
     hot: true,
     liveReload: true,
-
     watchFiles: {
       paths: `${paths.src}/**/*.njk`,
       options: {
@@ -36,7 +35,6 @@ module.exports = merge(common, {
         poll: true,
       },
     },
-
     port: 8080,
   },
   plugins: [
