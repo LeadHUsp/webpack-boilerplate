@@ -3,8 +3,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-
+const path = require('path');
 const paths = require('./paths');
 const common = require('./webpack.common');
 
@@ -51,25 +50,14 @@ const minimization = [
     extractComments: false,
   }),
 ];
-if (process.env.NODE_ENV_IMAGE === 'optimization') {
-  minimization.push(
-    new ImageMinimizerPlugin({
-      minimizer: {
-        implementation: ImageMinimizerPlugin.squooshMinify,
-        options: {
-          // Your options for `squoosh`
-        },
-      },
-    })
-  );
-}
+
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
     path: paths.build,
-    publicPath: '/',
+    publicPath: paths.serverThemePath,
     filename: `${paths.buildAssets}/js/[name].bundle.js`,
   },
   module: {

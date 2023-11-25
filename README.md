@@ -50,6 +50,12 @@ npm run prod-image
 
 **Идем в config/paths.js находим ключ buildAssets, и меняем на нужный**
 
+### Как поменять путь для assets с учетом пути на сервере
+
+**Идем в config/paths.js находим ключ serverThemePath, и меняем на нужный**
+
+По умолчанию стоит "/", с учетом текущего пути на сервере меняем на "assets/theme/dist/"
+
 ## Возможности
 
 - [webpack](https://webpack.js.org/)

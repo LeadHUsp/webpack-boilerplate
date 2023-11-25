@@ -34,7 +34,7 @@ module.exports = {
       ],
     }),
     ...utils.pages(paths.pages),
-    //vue loader plugin
+    
 
     //svg sprite generator
     // new SVGSpritemapPlugin(`${paths.public}/icons/*.svg`, {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="cleartype" content="on">
@@ -11,7 +11,8 @@
         {% endfor %}
     </head>
     <body>
-        <div></div>
+        {% set img = htmlWebpackPlugin.options.templateParameters.images %}
+        {% set fallback = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" %}
         {% include "blocks/header/header.njk" %}
         {% include "blocks/drawer/drawer.njk" %}
         <div id="root-react"></div>
