@@ -1,5 +1,3 @@
-import '@/blocks/drawer/drawer.scss';
-
 export class Drawer {
   constructor(options) {
     const defaultOptions = {
@@ -27,10 +25,12 @@ export class Drawer {
       this.openBtnEl.addEventListener('click', () => {
         this.drawerEl.classList.add('_active');
         document.body.style = 'overflow:hidden';
+        this.drawerIsOpen = true;
       });
     this.closeBtnEl.addEventListener('click', () => {
       this.drawerEl.classList.remove('_active');
       document.body.style = '';
+      this.drawerIsOpen = false;
     });
     Array.prototype.forEach.call(this.showSubNavBtnEl, (item) => {
       item.addEventListener('click', this._showSubNav);
@@ -61,9 +61,8 @@ export class Drawer {
   };
   _showSubNav = (e) => {
     e.currentTarget.nextElementSibling.classList.add('active');
-    document.querySelector(
-      '.drawer__list'
-    ).style.cssText = `height:${e.currentTarget.nextElementSibling.scrollHeight}px`;
+    document.querySelector('.drawer__list').style.cssText =
+      `height:${e.currentTarget.nextElementSibling.scrollHeight}px`;
   };
   _closeSubNav = (e) => {
     const subnav = e.currentTarget

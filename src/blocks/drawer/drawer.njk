@@ -2,7 +2,7 @@
 	<div class="drawer__wrapper">
 		<div class="drawer__head">
 			<div class="drawer__logo">
-				<img class="_fw" src="img/site-bar/logo.svg" alt="">
+				<img class="_fw" src="{{img}}/logo-horizontal.svg" alt="">
 			</div>
 			<button class="drawer__close">
 				<svg class="drawer__icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,27 +10,12 @@
 				</svg>
 			</button>
 		</div>
-		<div class="drawer__body _js-scrollbar">
+		<div class="drawer__body">
 			<ul class="drawer__list">
-				<li class="drawer__item">
-					<a class="drawer__link" href="/">Главная</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="/">Наши услуги</a>
-					<button class="drawer__btn">
-						<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-						</svg>
-					</button>
-					<ul class="drawer__subnav">
-						<li class="drawer__prev">
-							<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-							</svg>
-							<span class="drawer__info">Назад</span>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Установка сантехники</a>
+				{% for item in about %}
+					<li class="drawer__item">
+						<a class="drawer__link" href="{{item.link}}">{{item.title}}</a>
+						{% if item.subnav %}
 							<button class="drawer__btn">
 								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
@@ -43,40 +28,39 @@
 									</svg>
 									<span class="drawer__info">Назад</span>
 								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка ванны</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка писсуара</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка и подключение джакузи</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка фильтров для очистки воды</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разводка сантехники в новостройке</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Сборка и установка душевой кабины</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка гигиенического душа</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка унитаза</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка смесителя</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка биде</a>
-								</li>
+								{% for sub1 in item.subnav %}
+									<li class="drawer__item">
+										<a class="drawer__link" href="{{sub1.link}}">{{sub1.title}}</a>
+										{% if sub1.subnav %}
+											<button class="drawer__btn">
+												<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+												</svg>
+											</button>
+											<ul class="drawer__subnav">
+												<li class="drawer__prev">
+													<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+													</svg>
+													<span class="drawer__info">Назад</span>
+												</li>
+												{% for sub2 in sub1.subnav %}
+													<li class="drawer__item">
+														<a class="drawer__link" href="{{sub2.link}}">{{sub2.title}}</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endfor %}
 							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">работы для частного дома</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+				{% for item in directions %}
+					<li class="drawer__item">
+						<a class="drawer__link" href="{{item.link}}">{{item.title}}</a>
+						{% if item.subnav %}
 							<button class="drawer__btn">
 								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
@@ -89,22 +73,39 @@
 									</svg>
 									<span class="drawer__info">Назад</span>
 								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Бурение скважин на воду</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Монтаж выгребной ямы</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка септика</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка кессона</a>
-								</li>
+								{% for sub1 in item.subnav %}
+									<li class="drawer__item">
+										<a class="drawer__link" href="{{sub1.link}}">{{sub1.title}}</a>
+										{% if sub1.subnav %}
+											<button class="drawer__btn">
+												<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+												</svg>
+											</button>
+											<ul class="drawer__subnav">
+												<li class="drawer__prev">
+													<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+													</svg>
+													<span class="drawer__info">Назад</span>
+												</li>
+												{% for sub2 in sub1.subnav %}
+													<li class="drawer__item">
+														<a class="drawer__link" href="{{sub2.link}}">{{sub2.title}}</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endfor %}
 							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Ремонт и отделка</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+				{% for item in aside %}
+					<li class="drawer__item">
+						<a class="drawer__link" href="{{item.link}}">{{item.title}}</a>
+						{% if item.subnav %}
 							<button class="drawer__btn">
 								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
@@ -117,252 +118,49 @@
 									</svg>
 									<span class="drawer__info">Назад</span>
 								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт ванной комнаты</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт санузла</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт туалета</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт кухни</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Объединение ванной и туалета</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Перенос мокрой зоны</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Перенос санузла</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Перенос кухни</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Укладка плитки</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Укладка кафеля</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Укладка мозаики</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Отделка панелями ПВХ</a>
-								</li>
+								{% for sub1 in item.subnav %}
+									<li class="drawer__item">
+										<a class="drawer__link" href="{{sub1.link}}">{{sub1.title}}</a>
+										{% if sub1.subnav %}
+											<button class="drawer__btn">
+												<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+												</svg>
+											</button>
+											<ul class="drawer__subnav">
+												<li class="drawer__prev">
+													<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
+													</svg>
+													<span class="drawer__info">Назад</span>
+												</li>
+												{% for sub2 in sub1.subnav %}
+													<li class="drawer__item">
+														<a class="drawer__link" href="{{sub2.link}}">{{sub2.title}}</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endfor %}
 							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Ремонт сантехники</a>
-							<button class="drawer__btn">
-								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-								</svg>
-							</button>
-							<ul class="drawer__subnav">
-								<li class="drawer__prev">
-									<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-									</svg>
-									<span class="drawer__info">Назад</span>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт душевых кабин</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт сололифта</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт бачка унитаза</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт смесителя</a>
-								</li>
-							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Монтаж систем отопления</a>
-							<button class="drawer__btn">
-								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-								</svg>
-							</button>
-							<ul class="drawer__subnav">
-								<li class="drawer__prev">
-									<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-									</svg>
-									<span class="drawer__info">Назад</span>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разводка труб отопления</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Замена стояков отопления</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Замена труб отопления</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка полотенцесушителя</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Монтаж водяного теплого пола</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка котла отопления</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Промывка систем отопления</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разморозка труб отопления</a>
-								</li>
-							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Монтаж канализации</a>
-							<button class="drawer__btn">
-								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-								</svg>
-							</button>
-							<ul class="drawer__subnav">
-								<li class="drawer__prev">
-									<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-									</svg>
-									<span class="drawer__info">Назад</span>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Прокладка канализации</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разводка труб канализации</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Замена стояка канализации</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка и замена сифона</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка сололифта</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка жироуловителя</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разморозка труб канализации</a>
-								</li>
-							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Монтаж систем водоснабжения</a>
-							<button class="drawer__btn">
-								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-								</svg>
-							</button>
-							<ul class="drawer__subnav">
-								<li class="drawer__prev">
-									<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-									</svg>
-									<span class="drawer__info">Назад</span>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Монтаж труб водоснабжения</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Монтаж водопровода</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка гребенки</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Пайка и сварка труб</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Замена стояков водоснабжения</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка редуктора давления воды</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Устранение протечек</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Разморозка труб водопровода</a>
-								</li>
-							</ul>
-						</li>
-						<li class="drawer__item">
-							<a class="drawer__link" href="services-1lvl.html">Бытовые услуги</a>
-							<button class="drawer__btn">
-								<svg class="drawer__arrow" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-								</svg>
-							</button>
-							<ul class="drawer__subnav">
-								<li class="drawer__prev">
-									<svg class="drawer__icon-prev" viewbox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M0.93934 13.0607C0.353553 12.4749 0.353553 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807611 12.0208 0.807611 12.6066 1.3934C13.1924 1.97918 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.93934 13.0607ZM5 13.5L2 13.5L2 10.5L5 10.5L5 13.5Z"></path>
-									</svg>
-									<span class="drawer__info">Назад</span>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Поверка счетчиков воды</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт стиральных машин</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Установка посудомоечной машин</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт посудомоечных машин</a>
-								</li>
-								<li class="drawer__item">
-									<a class="drawer__link" href="services-2lvl.html">Ремонт бойлеров и водонагревателей</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="about.html">О нас</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="prices.html">Цены</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="offer-all.html">Акции</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="gallery.html">Наши работы</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="reviews.html">Отзывы</a>
-				</li>
-				<li class="drawer__item">
-					<a class="drawer__link" href="contact.html">Контакты</a>
-				</li>
+						{% endif %}
+					</li>
+				{% endfor %}
 			</ul>
 		</div>
 		<div class="drawer__footer">
-			<div class="drawer__phone">
-				<div class="phone">
-					<div class="phone__note">Круглосуточно и без выходных</div>
-					<a class="phone__phone" href="tel:+79999999999">+7 (999) 999-99-99</a>
-				</div>
-			</div>
-			<div class="drawer__callback">
-				<button class="btn btn_size_sm btn_type_secondary" data-trigger-modal="callback">Заказать звонок </button>
-			</div>
+			<button class="drawer__callback icon-btn">
+				<span class="icon-btn__icon">
+					<svg class="svg" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M27.3905 25.1299C29.0778 23.3196 29.9977 21.0815 29.9977 18.7497C29.9977 15.8321 28.5564 13.1898 26.248 11.3149C26.1953 17.9998 19.9088 23.4368 12.187 23.4368H6.96094C8.98222 26.7704 13.0892 29.0612 17.8114 29.0612H29.0603C29.4411 29.0612 29.7809 28.8327 29.9274 28.4812C30.0738 28.1296 29.9918 27.7254 29.7223 27.4617L27.3905 25.1299Z" fill="#6CACE4"/>
+						<path d="M12.1878 0.938965C5.46777 0.938965 0.00152486 5.56154 0.00152486 11.2504C0.00152486 13.5822 0.921353 15.8144 2.60868 17.6306L0.276888 19.9624C0.00738364 20.2319 -0.0746393 20.6362 0.0718302 20.9819C0.2183 21.3334 0.558109 21.5619 0.93893 21.5619H12.1878C18.9078 21.5619 24.3741 16.9393 24.3741 11.2504C24.3741 5.56154 18.9078 0.938965 12.1878 0.938965Z" fill="#003274"/>
+						<path d="M17.8113 8.43799H6.5624C6.04683 8.43799 5.625 8.85982 5.625 9.37539C5.625 9.89097 6.04683 10.3128 6.5624 10.3128H17.8113C18.3268 10.3128 18.7487 9.89097 18.7487 9.37539C18.7487 8.85982 18.3268 8.43799 17.8113 8.43799Z" fill="#FAFAFA"/>
+						<path d="M14.0616 12.1875H6.5624C6.04683 12.1875 5.625 12.6093 5.625 13.1249C5.625 13.6405 6.04683 14.0623 6.5624 14.0623H14.0616C14.5772 14.0623 14.999 13.6405 14.999 13.1249C14.999 12.6093 14.5772 12.1875 14.0616 12.1875Z" fill="#FAFAFA"/>
+					</svg>
+				</span>
+				<span class="icon-btn__txt">Обратная связь</span>
+			</button>
 		</div>
 	</div>
 </div>
