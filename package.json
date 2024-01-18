@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "prod": "cross-env NODE_ENV=production webpack --config config/webpack.prod-nohash.js",
+    "prod": "cross-env NODE_ENV=deploy webpack --config config/webpack.prod-nohash.js",
     "source": "cross-env NODE_ENV=development NODE_ENV_DISK=disk webpack serve --config config/webpack.dev.js",
     "lint": "eslint --ext .js src/**/*.js",
     "prettify": "prettier --write 'src/**/*.js'"

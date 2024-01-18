@@ -14,7 +14,7 @@ exports.pages = function (folder = '') {
     const viewName = view.split('.')[0];
     const fileName = `${view.replace(/\.njk/, '.html')}`;
     const buildPath =
-      process.env.NODE_ENV_DEPLOY === 'deploy'
+      process.env.NODE_ENV === 'deploy'
         ? `${paths.serverThemePath}${paths.buildAssets}`
         : paths.buildAssets;
     const options = {
