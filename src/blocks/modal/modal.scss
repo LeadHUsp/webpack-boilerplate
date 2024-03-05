@@ -1,4 +1,4 @@
-.tf-modal {
+.modal {
   position: fixed;
   left: 0;
   right: 0;
@@ -12,7 +12,7 @@
   z-index: 9999;
   overflow: hidden auto;
   padding: 0 10px;
-  &._active {
+  &.active {
     visibility: visible;
     opacity: 1;
   }

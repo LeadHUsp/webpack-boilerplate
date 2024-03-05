@@ -6,7 +6,7 @@ export class Modal {
       modalLayerCssSelector: '.tf-modal__layer',
       modalCloseBtnCssSelector: '.js-close-modal',
       modalContainerCssSelector: '.js-modal-content',
-      activeCssClass: '_active',
+      activeCssClass: 'active',
       afterOpenCallback: () => {},
       afterClose: () => {},
     };
