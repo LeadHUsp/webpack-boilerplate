@@ -11,8 +11,13 @@ export class CreateMobileSlider {
       //ширина при которой появится слайдер
       mobileBreakPoint: '1200',
       sliderOptions: {
-        modules: [Navigation],
-
+        modules: [Pagination, Navigation],
+        pagination: {
+          el: '.fn-pager',
+          dynamicBullets: true,
+          bulletClass: 'fn-pager__bullet',
+          bulletActiveClass: 'fn-pager__bullet_active_red',
+        },
         navigation: {
           prevEl: '.js-prev',
           nextEl: '.js-next',
@@ -58,6 +63,10 @@ export class CreateMobileSlider {
     if (clone.tagName === 'A' && clone.getAttribute('data-fslightbox')) {
       clone.setAttribute('data-fslightbox', keyForsearch);
     }
+    const insideZoomLink = clone.querySelector('[data-fslightbox]');
+    if (insideZoomLink) {
+      insideZoomLink.setAttribute('data-fslightbox', keyForsearch);
+    }
     slideEl.appendChild(clone);
     containerNode.appendChild(slideEl);
   };
@@ -81,17 +90,18 @@ export class CreateMobileSlider {
       `   <div class="fn-mobile-slider">
             <div class="swiper" id="${keyForsearch}">
               <div class="swiper-wrapper"></div>
-              <div class="slider-control">
-                <button class="slider-control__arrow sl-arrow sl-arrow_primary js-prev">
-                  <svg class="svg" viewBox="0 0 22 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.39411 9.24223L0.575735 5.42386C0.341421 5.18954 0.341421 4.80964 0.575735 4.57533L4.39411 0.756953C4.62843 0.522638 5.00832 0.522638 5.24264 0.756953C5.47695 0.991268 5.47695 1.37117 5.24264 1.60548L2.44853 4.39959L22 4.39959L22 5.59959L2.44853 5.59959L5.24264 8.39371C5.47696 8.62802 5.47696 9.00792 5.24264 9.24223C5.00833 9.47655 4.62843 9.47655 4.39411 9.24223Z"/>
-                  </svg>
-                </button>
-                <button class="slider-control__arrow  sl-arrow sl-arrow_primary js-next">
-                  <svg class="svg" viewBox="0 0 22 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.6059 9.24223L21.4243 5.42386C21.6586 5.18954 21.6586 4.80964 21.4243 4.57533L17.6059 0.756953C17.3716 0.522638 16.9917 0.522638 16.7574 0.756953C16.523 0.991268 16.523 1.37117 16.7574 1.60548L19.5515 4.39959L4.38721e-07 4.39959L3.33813e-07 5.59959L19.5515 5.59959L16.7574 8.39371C16.523 8.62802 16.523 9.00792 16.7574 9.24223C16.9917 9.47655 17.3716 9.47655 17.6059 9.24223Z"/>
-                  </svg>
-                </button>
+                <div class="fn-mobile-slider__arrow fn-mobile-slider__arrow_prev sl-arrow sl-arrow_blue js-prev">
+                  <svg class="svg" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.398205 9.36567L10.4065 0.245066C10.7349 -0.0816885 11.2675 -0.0816885 11.596 0.245066C11.9244 0.571794 11.9244 1.10195 11.596 1.4287L2.19114 10L11.5951 18.5713C11.9236 18.8981 11.9236 19.4282 11.5951 19.7549C11.2667 20.0817 10.7341 20.0817 10.4057 19.7549L0.397371 10.6343C0.222328 10.4601 0.147281 10.2292 0.158973 10.0008C0.148089 9.77161 0.223111 9.54071 0.398205 9.36567Z" />
+                  </svg>                
+                </div>
+                <div class="fn-mobile-slider__arrow fn-mobile-slider__arrow_next sl-arrow sl-arrow_blue js-next">
+                  <svg class="svg" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6018 9.36567L1.5935 0.245066C1.26508 -0.0816885 0.732451 -0.0816885 0.40403 0.245066C0.0756097 0.571794 0.0756097 1.10195 0.40403 1.4287L9.80886 10L0.404863 18.5713C0.0764427 18.8981 0.0764427 19.4282 0.404863 19.7549C0.733284 20.0817 1.26591 20.0817 1.59431 19.7549L11.6026 10.6343C11.7777 10.4601 11.8527 10.2292 11.841 10.0008C11.8519 9.77161 11.7769 9.54071 11.6018 9.36567Z" />
+                  </svg>                
+                </div>
+              <div class="fn-pager">                
+                <div class="fn-pager__pager"></div>
               </div>
              </div>
           </div>				 

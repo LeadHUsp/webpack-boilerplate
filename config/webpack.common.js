@@ -5,6 +5,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const paths = require('./paths');
 const utils = require('./utils');
 const path = require('path');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 module.exports = {
   // Where webpack looks to start building the bundle
   entry: [paths.src + '/index.js'],
@@ -19,6 +20,19 @@ module.exports = {
   // Customize the webpack build process
   plugins: [
     new CleanWebpackPlugin(),
+    new ImageMinimizerPlugin({
+      deleteOriginalAssets: false,
+      generator: [
+        {
+          type: 'asset',
+          preset: 'webp',
+          implementation: ImageMinimizerPlugin.imageminGenerate,
+          options: {
+            plugins: [['imagemin-webp', { quality: 90 }]],
+          },
+        },
+      ],
+    }),
     new VueLoaderPlugin(),
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
@@ -34,7 +48,6 @@ module.exports = {
       ],
     }),
     ...utils.pages(paths.pages),
-    
 
     //svg sprite generator
     // new SVGSpritemapPlugin(`${paths.public}/icons/*.svg`, {
@@ -96,7 +109,7 @@ module.exports = {
         test: /\.(html|njk|nunjucks)$/,
         exclude: [/node_modules/],
         use: [
-           {
+          {
             loader: 'thread-loader',
             options: {
               workers: require('os').cpus().length - 1,

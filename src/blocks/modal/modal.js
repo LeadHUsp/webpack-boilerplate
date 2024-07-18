@@ -2,8 +2,8 @@ export class Modal {
   constructor(options) {
     const defaultOptions = {
       modalTriggerCssSelector: '.js-popup',
-      modalWindowCssSelector: '.tf-modal',
-      modalLayerCssSelector: '.tf-modal__layer',
+      modalWindowCssSelector: '.modal',
+      modalLayerCssSelector: '.modal__layer',
       modalCloseBtnCssSelector: '.js-close-modal',
       modalContainerCssSelector: '.js-modal-content',
       activeCssClass: 'active',

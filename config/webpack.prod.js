@@ -4,7 +4,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
-
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const paths = require('./paths');
 const common = require('./webpack.common');
 
@@ -108,6 +108,28 @@ module.exports = merge(common, {
           },
         },
         extractComments: false,
+      }),
+      new ImageMinimizerPlugin({
+        deleteOriginalAssets: false,
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              ['imagemin-mozjpeg', { quality: 100 }],
+              ['imagemin-pngquant', { quality: [0.9, 1] }],
+            ],
+          },
+        },
+        generator: [
+          {
+            type: 'asset',
+            preset: 'webp',
+            implementation: ImageMinimizerPlugin.imageminGenerate,
+            options: {
+              plugins: [['imagemin-webp', { quality: 90 }]],
+            },
+          },
+        ],
       }),
     ],
 
