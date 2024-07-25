@@ -20,26 +20,24 @@ body {
   padding: 0 10px;
   margin: 0 auto;
 }
-._fw {
+.fw {
   width: 100%;
   height: auto;
 }
-._h1-title {
+.h1-title {
   font-weight: 800;
+  text-transform: uppercase;
+  line-height: 136%;
   @include value('font-size', 22, 42);
-  text-transform: uppercase;
-  line-height: 136%;
 }
-._h2-title {
+.h2-title {
   font-weight: 800;
-  @include value('font-size', 21, 36);
-  padding-bottom: 0.9em;
   line-height: 136%;
   text-transform: uppercase;
+  @include value('font-size', 21, 36);
 }
-.btn {
-}
-._editor {
+
+.editor {
   line-height: 170%;
   p {
     margin-bottom: 1.1em;
