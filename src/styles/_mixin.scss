@@ -125,3 +125,6 @@ $templateSize: 1920 - 17; // 17 its width of scrollbar
     );
   }
 }
+@mixin fgap($gap, $columns) {
+  width: calc((100% - $gap * ($columns - 1)) / $columns);
+}
