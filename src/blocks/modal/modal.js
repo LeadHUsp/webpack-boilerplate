@@ -64,7 +64,7 @@ export class Modal {
     if (modalToOpen) {
       this.activeModals[modalLink] = modalToOpen;
       document.body.style.cssText = 'overflow:hidden';
-      modalToOpen.classList.add('_active');
+      modalToOpen.classList.add(this.options.activeCssClass);
     }
     this.options.afterOpenCallback();
   }
