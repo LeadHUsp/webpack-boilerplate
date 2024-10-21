@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $font-size: 1rem;
 $main-font: 'Gilroy', 'Helvetica', 'Arial', 'sans-serif';
 $background-color: #fff;
@@ -6,9 +8,9 @@ $page-width: 650px;
 
 // theme
 $primary: #1d4c56;
-$primary-dark: darken($primary, 15%);
+$primary-dark: color.adjust($primary, $lightness: -15%);
 $secondary: #119b14;
-$secondary-dark: darken($secondary, 10%);
+$secondary-dark: color.adjust($secondary, $lightness: -10%);
 
 // responsive
 $container-pc: 1600px;
