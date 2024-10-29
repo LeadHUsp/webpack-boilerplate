@@ -86,9 +86,11 @@ module.exports = merge(common, {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              quietDeps: true,
-              verbose: true,
-              silenceDeprecations: ['global-builtin', 'import', 'legacy-js-api'],
+              sassOptions: {
+                quietDeps: true,
+                verbose: true,
+                silenceDeprecations: ['global-builtin', 'import', 'legacy-js-api'],
+              },
             },
           },
         ],
